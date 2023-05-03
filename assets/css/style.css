@@ -1,0 +1,657 @@
+*{
+     /* Cach goi nhanh emmet */
+    padding: 0; /*Go p + 0 -> tab*/
+    margin: 0; 
+    box-sizing: border-box;
+}
+
+/* 
+===Cac cau hoi quan trong khi thiet ke
+1. Vi tri
+2. Kich thuoc (widht, height)
+3. Mau sac
+4. Kieu dang (kieu chu, hinh tron, vuong, ...)
+ */
+/* -------CAC CLASS DUNG CHUNG------- */
+html{
+    /* Uu tien theo thu tu: 
+        -> Dua theo tren may co font Arial -> Helvetica, neu khong co thi chon font san-serif bat ky    
+    */
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth; /*smooth transition for navigation clicking*/
+}
+
+.text-white{
+    color: #fff !important;
+}
+
+.clear {
+    clear: both;
+    /*giai quyet TH float*/
+}
+.text-center{
+    text-align: center !important;
+}
+/* Cac class su dung chung cho hang va cot */
+.row{
+    margin-left:-8px;
+    margin-right: -8px;
+}
+/* Do thuoc tinh float cua col nen phai them class pseudo after row */
+.row::after{
+    content: ""; /*Phai them content (bat buoc)*/
+    display: block;
+    clear: both;
+}
+.col{
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.col-full{
+    width:100%;
+}
+.col-half {
+    width: calc(100%/2);
+}
+.col-third{
+    width: calc(100%/3);
+}
+.col-fourth {
+    width: calc(100%/4);
+}
+
+/* --The margin dung chung--- */
+.mt-8{
+    margin-top: 8px;
+}
+.mt-16{
+    margin-top: 16px;
+}
+/* joint class for button */
+.btn{
+    background-color: #000;
+    color: #fff;
+    /* Set padding nay dua vao kich thuoc cua button (check kich thuoc tong the va tn */
+    padding: 11px 16px;
+    /* Vi co ban no la display: inline khi duoc padding se dam xuyen element khac-> display: inline-block */
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 0px !important;
+    font-size: 15px;
+    margin-bottom: 16px;
+    border: 0;
+    cursor: pointer;
+    /* For reseting basic settings on safari and other browsers (preventing errors) */
+    -webkit-appearance: none;
+}
+.btn:hover{
+    color: #000;
+    background-color: rgb(204, 200, 200);
+}
+.pull-right{
+    float: right !important;
+}
+/* ------------------------- */
+#nav > li > a{ 
+    /*CSS tat ca the a la con truc tiep cua li ma cac the li nay la con truc tiep cua the nav*/
+     color: #fff;
+    /* Viet HOA cho text */
+    text-transform: uppercase;
+}
+
+#nav li a{
+    text-decoration: none;
+    padding: 0 20px;
+    line-height: 46px;
+    display: block; 
+}
+
+/* Di chuot vao the MORE de hien children */
+/* CSS cho subnav la con li khi ta hover vao the li nay(li la con #nav) */
+#nav li:hover .subnav{
+    display: block;
+}
+
+/* Tao hieu ung chuyen mau khi tro chuot vao button tren navigation */
+    /* Khi hover vao the li (la child cua #nav) -> the a se duoc css */
+    /* Cac subnav child se duoc to dam rieng biet */
+#nav > li:hover > a ,
+#nav .subnav li:hover{
+    background-color: #ccc;
+    color: #000;        
+    /* Vi thuoc tinh co ban cua a la display: inline; -> khong co width, height */
+}
+
+#wrapper{
+
+}
+
+#header{
+    height: 46px;
+    background-color: black;
+    /* Set bam dinh cho header */
+    position: fixed;
+    top: 0; /*set top=0 de cho header dinh sat len tren top browser*/
+    left: 0;
+    /* Khi co position, tinh chat ke thua chieu ngang bi mat -> chieu rong header bi thay doi */
+    right: 0;
+    /* Sua loi slider tran len header: giong nhu layer-index trong unity -> tang dan index r check */
+    z-index: 1;
+}
+/*--responsive */
+
+#nav > li{
+    display: inline-block;
+}
+
+#nav li{
+    /*inline-block khong ke thua width cua the parent*/
+    position: relative;
+    
+}
+
+#nav .subnav{ /*CSS child of nav id in case there are more than 1 class "subnav"*/
+    display: none;
+    position: absolute;
+    background-color: white;
+    /* Keo dai thanh toggle */
+    min-width: 160px;
+    /* !!! O DAY nen set position top, left de can chinh hieu qua cho sau nay */
+    top: 100%; /* Day ul xuong 1 khoang bang 100% size-height cua tag MORE*/
+    left: 0;
+    /* Hieu ung shadow cho box */
+        /* horizontal vertical <radius> <color> */
+        /* 0 0 cho bong khong bi do theo 1 huong rieng trai/phai */
+    box-shadow: 0 0 10px rgba(0, 0, 0.3);
+}
+
+#nav .subnav a{
+    color: black;
+        /* Thut lui children cua navigation */
+        /* ->> Nguyen tac la chon con so chia het cho 4 */
+    padding-left: 10px;
+        /* Dieu chinh do rong cua cac children */
+    line-height: 32px;
+}
+
+
+
+#footer{
+
+}
+
+#nav{
+    /* Thuoc tinh inline-block khien cho thanh nav chi keo dai den chu MORE (thay vi toan bo width cua web) */
+    display: inline-block;
+}
+
+/* To remove dots before elements in list */
+#nav , .subnav{
+    list-style-type: none;
+}
+
+#nav .nav-arrow-down{
+    font-size: 12px;
+}
+
+
+/* CSS phan SEARCH Button */
+#header .mobile-menu-btn,
+#header .search-button{
+    /* height: 100%; */
+    width: 64px;
+    text-transform: uppercase;
+    /* Vi the div co ban se ke thua het chieu ngang co the chiem
+    -> DUNG thuoc tinh float
+     */
+    float: right;
+    /* search-icon -> ke thua -> text aligned to center 
+        *O day do text (icon) tran vien nen chi can text-align la no can giua */
+    text-align: center;
+    /* fix error1 mobile responsive */
+    position: absolute;
+    top:0;
+    right:0;
+}
+/* Search Button */
+#header .search-icon{
+    font-size: 20px;
+    color: white;
+    line-height: 46px;
+}
+#header .search-button:hover{
+    background-color: #f44336;
+    cursor: pointer;
+}
+/* Menu Button */
+#header .mobile-menu-btn{
+    font-size: 15px;
+    color: #fff;    
+    width: 60px;
+    /* responsive */
+    display: none;
+}
+#header .menu-icon{
+    font-size: 15px;
+    line-height: 46px;
+}
+#header .mobile-menu-btn:hover{
+    background-color: #ccc;
+    color: #000;
+}
+
+
+/* CSS CHO PHAN SLIDER --------------- */
+#slider{
+    /* min-height: 500px; -> when height of this elm < min height -> height = minheight*/ 
+    background-color: #333;
+    margin-top: 46px;
+    /* set padding top = 50% -> chieu cao bang 1 nua width ho tro cho can chinh anh
+    ->> chieu cao tao boi padding  */
+        /* Gia tri % dai dien cho 50% width cua chinh no */
+    padding-top: 50%;
+    /* Set image-slider --- set cover de chu co the nam trong background image*/
+    background: url('../img/slider/tommy.jpg') no-repeat top center / cover; 
+    
+    /* Sau khi them content vao thi -> total size bi tang len -> background-size bi thay doi 
+        ->> tao thuoc tinh position nhu ben duoi */
+    position: relative; /*Khi do thi cac div content ke thua voi absolute se bi day len 1 layer va 
+     va khong chiem content nua*/
+}
+
+#slider .slider-content{
+    color: #fff;
+    position: absolute; 
+    bottom: 47px; /*Kiem tra bottom ben web mau*/
+    /* Set position cho title and content: CO 3 Cach:--- */
+    left: 50%;
+    transform: translateX(-50%); /*translateX: dich chuyen theo truc Ox*/
+    text-align: center; /*Sau khi dich chuyen, can text ra chinh giua cho deu*/
+    /* **Cach 2:
+    width: 100%;
+    text-align: center;
+       **Cach 3:
+    left: 0;
+    right: 0;
+    */
+    /* Sua loi slider tran len header -> z-index (xem tren ham header) */
+}
+#slider .slider-tittle{
+    font-size: 24px;
+    font-weight: 500; /*Do dam cua chua: (100~700)*/
+    margin-top: 25px; /*Gian cach giua tittle va desc */
+}
+#slider .slider-desc{
+    font-size: 15px;
+    font-weight: bold;
+    /* Add shadow: h-shadow=v-shadow=0 for shadow not to move right or left separatly*/
+    text-shadow: 0 0 1px #000;
+}
+
+#content {
+    /* height: auto; */
+    /* overflow: auto; */
+}
+
+/* -------------CSS cho phan content */
+/* +++ About */
+#content .content-section{
+    width: 800px; /*Check width tren web mau*/
+    max-width: 100%;
+    padding: 64px 0px 112px ;
+    /* Can giua cho the div */
+    margin-right: auto;
+    margin-left: auto; 
+    /* Responsive */
+    padding-left: 16px; /*align for the left*/
+    padding-right: 16px; /*8px for the right alignment, 8px for the margin: -8px of row */
+}
+
+#content .section-heading, 
+#content .section-subheading{
+    text-align: center;
+}
+
+#content .section-heading{
+    font-size: 30px;
+    margin: 10px;
+    font-weight: 500;
+    /* Set khoang cach giua cac letter cua chu */
+    letter-spacing: 4px;
+}
+
+#content .section-subheading{
+    margin: 15px;
+    font-size: 15px;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+#content .about{
+    font-size: 15px;
+    text-align: justify;
+    margin-top: 18px;
+    line-height: 1.4; 
+    /*khoang cach dong cho phan noi dung doc
+        + English: 1.4
+        + Vietnamese: 1.6 (do co cac loai dau) 
+    */
+}
+
+/* +++Members Introduction */
+#content .member-list{
+    margin-top: 48px;
+    overflow: hidden;
+}
+#content .member{
+    /* Align 3 images tren 1 hang */
+    /* float: left; -> o day nhuong cho cho class row, col*/
+     /*Khi su dung float thi cac element se troi qua cho khac
+       -> Dan den la the div member-list khong om cac element 
+        -> Khac phuc bang: clear hoac overflow: hidden
+    */
+    /* Can deu 3 images ra */
+    /* width: calc(100%/3); */
+    /* text-align: center; ->> dung class text-center */
+    /* Khi do img va name se ke thua va can giua */ 
+    /* CLASS NAY CO THE BO */
+    font-size: 32px;
+}
+
+#content .member-name{
+    font-size: 15px;
+}
+#content .member img{
+    width: 154px;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+/*+++Tour Dates  */
+#content .tour-section{
+    background-color: #000;  
+    
+}
+#content .booking-list{
+    background-color: #fff;
+    margin-top: 40px;
+    list-style: none;
+}
+
+.booking-list .sold-out{
+    background-color: red;
+    color: white;
+    padding: 3px 4px;
+    margin-left: 16px;
+}
+.booking-list .quantity{
+    background-color: #000;
+    color: white;
+    /* Set float right -> display = block va co the set width, height */
+    float: right;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%; /*Tao background hinh tron*/
+    margin-top: -3px; /*Chi khi set float -> set margin < 0*/
+    margin-right: 18px;
+}
+.booking-list li{
+    font-size: 15px;
+    padding: 11px 16px;
+    border: 1px solid #ddd;
+    color: #757575;
+}
+
+/*+++Tour Places */
+
+.place-holder{
+    /* Set margin am sua loi cac item k can het ra ben ngoai */
+    margin-top: 16px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* padding-bottom: 48px; */
+}
+.place-item{
+    /***Do thuoc tinh border-box duoc khai bao nen, va do width cua item da duoc xac dih
+    nen khi them padding vao thi element tu can chinh de kich thuoc khong bi thay doi*/
+    background-color: white;
+    background-clip: content-box;
+}
+.place-img{
+    /* Truong hop img co 1 khoang cach voi the div ben duoi, nn do the inline -> display: block */
+    width: 100%;
+    
+}
+.place-img:hover{
+    opacity: 0.6;
+}
+.place-content{
+    padding: 0px 16px;
+}
+.place-heading{
+    /* Do the heading co tinh chat khong ke thuc font-size */
+    font-size: 15px;
+    font-weight: 600; /*font-weight ~ 200 700*/
+}
+.place-date{
+    opacity: 0.6;
+    font-style: italic;
+}
+.place-desc{
+    line-height: 1.4;
+}
+
+.place-heading, .place-date, 
+.place-desc, .place-buy-btn{
+    margin: 15px 0px;
+}
+
+/* +++CSS phan modal */
+.modal{
+    /* Modal thi luon su dung position: fixed */
+    position: fixed;
+    /* Kich thuoc phu kin trinh duyet */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0,0.4);
+    /* Align cho container */
+    /* Using display flex for flexible properties: flex-direction, flex wrap,..
+    align items, align content, justify, flex-wrap, flex-flow */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.modal.open{
+    display: flex;  
+}
+
+.modal-container{
+    background-color: #fff;
+    /* Can chinh thu nho cho modal */
+    width: 900px;
+    max-width: calc(100% - 32px); /*Khi thu nho brwser -> max-width giam -> max-width < 900 -> thu giam theo*/
+    min-height: 200px; /*set min-heigh thi khi element tang thi heigh tu khac tang len  */
+    /* Allow to set absolute posititon for close bnt */
+    position: relative;
+    /* Associated with @keyframe */
+    animation: ModalFadeIn ease .5s; /*animation: <keyframe name> <style> <time speed> */
+}
+
+@keyframes ModalFadeIn {
+
+    /* Start position */
+    from {
+        transform: translateY(-140px);
+        opacity: 0;
+    }
+
+    /* End position */
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* Check modal-container class above to see  */
+}
+
+.modal-closebnt{
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* padding to set width and height of the button 
+    -> increase HITBOX */
+    padding: 16px 15px;
+    color: #fff;
+    opacity: 0.9;
+}
+.modal-closebnt:hover{
+    background-color: #ccc;
+    color:black;
+    cursor: pointer;
+    opacity: 1; /* opacity 0.9->1 tao hieu ung dam hon khi hover */
+}
+.modal-header{
+    background-color: #009688;
+    padding: 55px 0px; /*Hoac set heigh=130px*/
+    text-align: center;  /*or align-item & justify-content (because it inheritated the flex display */
+    color: #fff;
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-family: cursive;
+}
+.modal-header .bagicon{
+    margin-right: 16px;
+}
+.modal-body{
+    padding: 16px;
+}
+.modal-label{
+    /* Do default display = inline nen tat ca element nam tren 1 hang -> display=block */
+    display:block;
+    margin: 15px 0px;
+    /* Set margin label (khac)= margin input -> dep hon */
+    margin-bottom: 12px;
+}
+.modal-input{
+    width: 100%;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 24px;
+}
+#modal-buyingbnt{
+    display: block;
+    width: 100%;
+    margin-top: 16px;
+    padding: 20px 0px;
+    background-color: #009688;
+    color: #fff;
+    border: 0;
+    /* margin-bottom: 71px; */
+}
+#modal-buyingbnt:hover{
+    background-color: #ccc;
+    color:black;
+    cursor: pointer;
+}
+.modal-footer{
+    margin-right: 16px;
+    padding: 26px 0px;
+    text-align: right; /*Do thuoc tinh co ban la block nen no chiem het 1 dong */
+    /*
+    **Cach cua minh:  
+    display: inline-block;
+    position: absolute;
+    right: 1px;
+    bottom: 33px;
+    margin-right: 16px; */
+}
+.modal-footer a{
+    color: blue;
+}
+
+/* +++ CONTACT SECTION */
+.contact{
+    /* height: 800px; */
+}
+.contact-content{
+    
+}
+
+.contact-info{
+    font-size: 18px;
+    line-height: 1.5;
+}
+.contact-info i[class*="ti-"]{ /*Cau truc css selector cac tag i ma class co ti-*/
+    display: inline-block;
+    width: 30px;
+}
+
+.contact-input{
+    font-size: 15px;
+}
+.contact-input .form-control{
+    padding: 11px 8px;
+    border: #ccc solid 1px;
+    border-radius: 3%;
+    outline: none   ;
+    /* ** */    
+    width: 100%;
+    
+}
+
+#form-message{
+    margin-bottom: 16px;
+}
+.contact-input .btn{
+    margin-bottom: 0;
+}
+/* +++ MAP SECTION */
+.map-section{
+    
+}
+.map-section img{
+    width: 100%;
+}
+
+/* +++Footer Section */
+#footer{
+    width: 100%;    
+    padding: 64px 16px;
+    text-align: center;
+    justify-content: center; 
+    background-color: #f1f1f1;
+}
+#footer .socials-icon{
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+#footer .socials-icon a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6);
+}
+#footer .socials-icon a:hover,
+#footer .copyrights a:hover{
+    color: rgba(0,0,0, 0.3);
+}
+#footer .copyrights,
+#footer .copyrights a{
+    font-size: 15px;
+    color: rgba(0,0,0,0.6);
+}
+
+
+/* Responsive---- */
+#nav > li:first-child{
+    /* select home div class */
+    display: inline-block;
+    /* Other buttons are still block displayed so they wont occupy space */
+}

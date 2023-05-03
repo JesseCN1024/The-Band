@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Band</title>
+    <!-- Set icon aside the title -->
+    <link rel="icon" type="favicon.ico" href="https://www.seekpng.com/png/small/324-3249405_1366274700bass-logo-rock-band-3-icons.png">
+    <!-- Cach link href thong qua THU MUC ks-->
+    <link rel="stylesheet" href="./assets/css/style.css"> 
+    <link rel="stylesheet" href="./assets/css/responsive.css"> <!--Put under style.css line for more priority-->
+    <!-- Link vao thuc muc chua css icon -->
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+</head>
+<body>
+    <!-- Tao 1 tag chua tat ca thanh phan cua web (thuong dat la wrapper, main, app)
+    -> Thuong cac thanh phan tao ra bang id 
+    -->
+    <div id="wrapper"> 
+        <div id="header" class="js-header">
+            <!-- Cau truc gọi nhanh ul#nav>li*5>a
+                + ul#nav -> tao tag ul voi id="nav"
+                + (tag)>li (tao con truc tiep)
+             -->
+             <!-- Begin: nav -->
+            <ul id="nav">
+                <!-- # means to the header -->
+                <li class="nav-btn"><a href="#">Home</a></li>
+                <li class="nav-btn"><a href="#band">Band</a></li>
+                <li class="nav-btn"><a href="#tour">Tour</a></li>
+                <li class="nav-btn"><a href="#contact">Contact</a></li>
+                <li>
+                    <a href="#">
+                        More
+                        <!-- Vi du them down arrow vao ke ben MORE -->
+                        <!-- O day dung the gi cung duoc, tuy nhien dung the "i" de de nhan bien icon -->
+                        <i class=" nav-arrow-down ti-angle-down"></i>
+
+                    </a>
+                    <!-- Tao toggle cho button MORE -->
+                    <ul class="subnav"> <!-- class o day phong truong hop sau nay muon them 1 button con vao MORE-->
+                        <li><a href="#">Merchandise</a></li>
+                        <li><a href="#">Extras</a></li>
+                        <li><a href="#">Media</a></li>
+                    </ul>
+                </li> 
+            </ul>
+            <!-- End: Nav -->
+
+            <!-- Search button -->
+            <div class="search-button">
+                <i class="search-icon ti-search"></i>
+            </div>
+
+            <!-- Mobile Responsive: Menu button -->
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="menu-icon ti-menu"></i>
+            </div>
+            
+        </div>
+         
+        <div id="slider">
+            <div class="slider-content">
+                <div class="slider-tittle">Tommy Shelby</div>
+                <div class="slider-desc">
+                    Peaky Blinder's Cillian Murphy Is Not A Fan Of Tommy Shelby's Haircut
+                </div>
+
+            </div>
+        </div>
+ 
+        <div id="content">
+            <!-- About Section -->
+            <div id="band" class="content-section">
+                <!-- Quy chuan dat ten, cac section nhu about, ticket,. giong nhau ve heading va subheading -->
+                <h2 class="section-heading">THE BAND</h2>
+                <p class="section-subheading">We love music</p>
+
+                <p class="about">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.We have created a fictional
+                band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <!-- Team introduction section -->
+                <div class="row member-list">
+                    <div class="col col-third member member1 text-center">
+                        <p class="member-name" >Arthur ShelBy</p>
+                        <img src="./assets/img/content/arthur.png" alt="" class="member-image">
+                    </div>
+                    <div class="col col-third member member2 text-center" >
+                        <p class="member-name">Arthur ShelBy</p>
+                        <img src="./assets/img/content/arthur.png" alt="" class="member-image">
+                    </div>
+                    <div class="col col-third member member3 text-center">
+                        <p class="member-name">Arthur ShelBy</p>
+                        <img src="./assets/img/content/arthur.png" alt="" class="member-image">
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!-- Tour Section -->
+            <div id="tour" class="tour-section">
+                <div class="content-section ">
+                    <h2 class="section-heading text-white">TOUR DATES</h2>
+                    <p class="section-subheading text-white">Remember to book your tickets!</p>
+                    <!-- Booking List -->
+                    <ul class="booking-list">
+                        <li>September <span class="sold-out">Sold-out</span>
+                        </li>
+                        <li>October <span class="sold-out">Sold-out</span></li>
+                        <li>November <span class="quantity">3</span></li>
+                    </ul>
+                    <!-- Place Holders -->
+                    <div class="row place-holder">
+                        <div class="col col-third place-item place1 mt-16">
+                            <img src="./assets/img/places/newyork.jpg" alt="New York" class="place-img">
+                            <div class="place-content">
+                                <h3 class="place-heading">New York</h3>
+                                <p class="place-date">Fri 27 Nov 2016</p>
+                                <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                <button class="btn js-place-buy-btn s-full-width">Buy Tickets</button>
+                            </div>
+                        </div>
+                        <div class="col col-third place-item place2 mt-16">
+                            <img src="./assets/img/places/paris.jpg" alt="Paris" class="place-img">
+                            <div class="place-content">
+                                <h3 class="place-heading">Paris</h3>
+                                <p class="place-date">Sat 28 Nov 2016</p>
+                                <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                <!-- Su dung javascript -> them class tien to: js- -->
+                                <button class="btn js-place-buy-btn s-full-width">Buy Tickets</button>
+
+                            </div>
+                        </div>
+                        <div class="col col-third place-item place3 mt-16">
+                            <img src="./assets/img/places/sanfran.jpg" alt="San Francisco" class="place-img">
+                            <div class="place-content">
+                                <h3 class="place-heading">San Francisco</h3>
+                                <p class="place-date">Sun 29 Nov 2016</p>
+                                <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                <button class="btn js-place-buy-btn s-full-width">Buy Tickets</button>
+                            </div>
+                        </div>
+                        <div class="clear"></div> <!--Su dung the clear khac phuc viec su dung float-->
+                    </div>
+                </div>
+            </div>
+            <!-- Begin: Contact Section -->
+            <div id="contact" class="content-section contact">
+                <h2 class="section-heading">CONTACT</h2>
+                <p class="section-subheading">Fan? Drop a note!</p>
+                <div class="row contact-content">
+                    <!-- chia 1 hang voi hai cot: contactinfo & input -->
+                    <!--    1. contactinfo -->
+                    <div class="col col-half s-col-full contact-info">
+                        <p><i class="ti-location-pin"></i>Chicago, US</p>
+                        <!-- Phone tool: On mobile -> clicking -> auto call -->
+                        <p><i class="ti-mobile"></i>Phone: <a href="tel:+00 151515">+00 151515</a></p>
+                        <!-- Mail tool:  -->
+                        <p><i class="ti-email"></i>Email: <a href="mailto:mail@mail.com">mail@mail.com</a></p>
+                    </div>
+                    <!--    2. input -->
+                    <div class="col col-half s-col-full contact-input">
+                        <!-- Duoc gom chung thanh 1 form -> lai chia theo row -->
+                        <form action="">
+                            <!-- Row 1 -->
+                            <div class="row">
+                                <!--    name -->
+                                <div class="col s-col-full col-half">
+                                    <input type="text" placeholder="Name" required id="form-name" class="form-control">
+                                </div>
+                                <!--    email -->
+                                <div class="col s-col-full col-half">
+                                    <input type="email" placeholder="Email" required id="form-email" class="form-control s-mt-8">
+                                </div>
+                            </div>
+                            <!-- Row 2: message -->
+                            <div class="row mt-8">
+                                <div class="col col-full"> <!--Vi message nam tren 1 dong-->
+                                    <input type="text" placeholder="Message" required id="form-message" class="form-control">
+                                </div>
+                            </div>
+                            <!-- Button: Submit -->
+                            <input class="btn pull-right mt-16 s-full-width" type="submit" value="SEND">
+                        </form>
+                    </div>
+                </div>
+            
+            </div>
+            <!-- End: Contact Section -->
+            <!-- Map Section -->
+            <div class="map-section">
+                <img src="./assets/img/map.jpg" alt="">
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div id="footer">
+            <div class="socials-icon">
+                <a href=""><i class="ti-facebook"></i></a>
+                <a href=""><i class="ti-instagram"></i></a>
+                <a href=""><i class="ti-youtube"></i></a>
+                <a href=""><i class="ti-pinterest"></i></a>
+                <a href=""><i class="ti-twitter"></i></a>
+                <a href=""><i class="ti-linkedin"></i></a>
+            </div>
+            <p class="copyrights">Powered by <a href="#" class="devinfo">w3css</a></p>
+            <div class="clear"></div>
+        </div>
+        <!-- ----Phan modal -->
+        <div class="modal js-modal">
+            <!-- Phan content: (modal la bao gom luon ca background panel) -->
+            <div class="modal-container js-modal-container">
+                <!-- 1. Close Bnt -->
+                <div class="modal-closebnt js-modal-closebnt">
+                    <i class="ti-close"></i>
+                </div>
+                <!-- 2. Header -->
+                <header class="modal-header">
+                    <!-- The header o day tuong tu nhu the div -->
+                    <i class="bagicon ti-bag"></i> <!--Bag icon-->
+                    Tickets
+                </header>
+                <!-- 3. Body -->
+                <div class="modal-body">
+                    <!-- a. First Input Field -->
+                    <!-- The label: 
+                        + label used with input type: checkbox, color, date,...
+                        + Increate hit area (such as checkbox)
+                        + 'for' attribute: focus pointer to input link when clicked
+                            (worked only with 'id' of input field)
+                     -->
+                    <label for="inp1" class="modal-label">
+                        <i class="ti-shopping-cart"></i>
+                        Tickets,$15 per person
+                    </label>
+                    <input id="inp1" type="text" class="modal-input" placeholder="How many?">
+                    <!-- b. Second Input Field -->
+                    <label for="inp2" class="modal-label">
+                        <i class="ti-user"></i>
+                        Send To
+                    </label>
+                    <input id="inp2" type="text" class="modal-input" placeholder="Enter email">
+                    <button id="modal-buyingbnt">
+                        PAY
+                        <i class="ti-check"></i>
+                    </button>
+                </div>
+                <!-- 4. Modal-Footer -->
+                <div class="modal-footer">
+                    <p class="modal-help">Need <a href="">help?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Document: take info from the web
+        // querrySeletorAll: call all el that have class..
+        const buyBtns = document.querySelectorAll('.js-place-buy-btn')
+        const exitModalBnt = document.querySelector('.js-modal-closebnt')
+        // -> this will align 3 buttons in the web into variable buyBtns
+        // To check this, check f12 - console - vari..name
+        const modal = document.querySelector('.js-modal')
+        const modalContainer = document.querySelector('.js-modal-container')
+
+
+        //Function to open Tickets-Booking-Modal: adding class open into class modal
+        function showModal(){ 
+            //alert("Alert() is a basic funcion of web"); //Alert - function
+            modal.classList.add('open') //Them class open vao modal
+        }
+        //Function to close Tickets-Booking-Modal: remove class open from class "modal open "
+        function closeModal(){
+            modal.classList.remove('open')
+        }
+        
+        // Check eventlistener to trigger above functions
+        for (const buyBtn of buyBtns){
+            // Event lisen action 'click' to trigger function after ','
+            buyBtn.addEventListener('click',showModal )
+        }
+        exitModalBnt.addEventListener('click', closeModal)
+        modal.addEventListener('click', closeModal)
+        //Fixing bubble effect
+        modalContainer.addEventListener('click',function (event){
+            // Function directly declacred in () doesnt need a name
+            event.stopPropagation() // When event happen -> stop bubbling at <modalContainer>
+            // -> Means when clicking in the modal container -> event will not be recorded 
+        })
+
+        
+        // JS for mobile-menu-button-----------------------
+        var header = document.getElementById('header');
+        var menuBtn = document.getElementById('mobile-menu-btn');
+        var headerHeight = header.clientHeight; //for more flexible 
+        menuBtn.onclick = function(){
+            // Equality calculation is counted from right to left
+                //header.clientHeight === 46 -> true/false and assigned to isClosed
+            var isClosed = header.clientHeight === headerHeight; //value here doesnt have px unit
+            
+            if (isClosed){
+                // CSS for header
+                header.style.height = 'auto';
+            }
+            else {
+                header.style.height = null; // considered as no css for height
+            }
+        }
+        // put css selector in querry selector ()
+        var navBtns = document.querySelectorAll('#nav li a[href*="#"]')
+        for (var i=0; i<navBtns.length; i++){
+            var navBtn = navBtns[i];
+            navBtn.onclick = function(event){
+                // 1. Bool Var check:  if current navBtn is a parent that has submenu (for "MORE" btn)
+                var isParentMenu = this.nextElementSibling 
+                    && this.nextElementSibling.classList.contains('subnav');
+                // 2. If true -> not MORE button
+                if (!isParentMenu){ 
+                    // when clicking -> hide all nav buttons but "home"
+                    header.style.height=null; // considered as no css for height (remove height: auto)
+                }
+                else {
+                    // onclick -> function will return an event
+                    // >> prevenDefault: stop function to return that event
+                    event.preventDefault(); 
+                }
+            }
+        }
+    </script>
+</body>
+</html>
